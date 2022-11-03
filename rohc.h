@@ -7,15 +7,18 @@
 // base class for ROHC compression schemas
 class ROHCScheme
 {
-	virtual ~ROHCScheme() = 0;
+public:
+	virtual ~ROHCScheme() {};
 	virtual void decompress(uint8_t* in, int in_length, uint8_t* out, int* out_length) = 0;
 };
 
 // 0x02
 class ROHCIpUdp : public ROHCScheme
 {
+
 	void decompress(uint8_t* in, int in_length, uint8_t* out, int* out_length) override
 	{}
+
 };
 
 // 0x03
@@ -51,7 +54,7 @@ class ROHCDecompressor
 {
 	void decompress(uint8_t* in, int in_length, uint8_t* out, int out_length)
 	{
-		//
+		
 	}
 private:
 	std::map<uint16_t, ROHCScheme*> instances;
